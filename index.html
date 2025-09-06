@@ -3,43 +3,126 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Smartphone Dashboard</title>
+  <title>Smartphone Usage Dashboard</title>
   <style>
-    /* Reset */
-    * {
+    body {
+      font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #f4f6f8;
+      background: #f4f6f9;
       color: #333;
-      padding: 10px;
     }
 
     header {
-      background-color: #2c3e50;
+      background: #4a90e2;
       color: white;
-      padding: 15px;
+      padding: 1em;
       text-align: center;
-      font-size: 1.5rem;
-      border-radius: 10px;
-      margin-bottom: 15px;
     }
 
     .dashboard {
       display: flex;
-      flex-direction: column;
-      gap: 15px;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1em;
+      padding: 1em;
     }
 
     .card {
       background: white;
-      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      padding: 1em;
+      width: 300px;
+      text-align: center;
+    }
+
+    .card h3 {
+      margin: 0.5em 0;
+    }
+
+    .usage-bar {
+      height: 20px;
+      background: #eee;
       border-radius: 10px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      display: flex;
-      flex-direction: column;
-      justify
+      overflow: hidden;
+      margin-top: 0.5em;
+    }
+
+    .usage-fill {
+      height: 100%;
+      background: #4a90e2;
+      width: 0%;
+      transition: width 0.5s ease-in-out;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1em;
+      font-size: 0.9em;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>📊 Smartphone Usage Dashboard</h1>
+    <p>Track your phone usage stats</p>
+  </header>
+
+  <section class="dashboard">
+    <div class="card">
+      <h3>📱 Screen Time</h3>
+      <p><strong id="screenTime">0</strong> hrs</p>
+      <div class="usage-bar"><div class="usage-fill" id="screenBar"></div></div>
+    </div>
+    
+    <div class="card">
+      <h3>📦 Storage Used</h3>
+      <p><strong id="storageUsed">0</strong> GB</p>
+      <div class="usage-bar"><div class="usage-fill" id="storageBar"></div></div>
+    </div>
+
+    <div class="card">
+      <h3>🔋 Battery Usage</h3>
+      <p><strong id="battery">0</strong>%</p>
+      <div class="usage-bar"><div class="usage-fill" id="batteryBar"></div></div>
+    </div>
+
+    <div class="card">
+      <h3>🌐 Data Usage</h3>
+      <p><strong id="dataUsed">0</strong> GB</p>
+      <div class="usage-bar"><div class="usage-fill" id="dataBar"></div></div>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 Smartphone Dashboard. All rights reserved.
+  </footer>
+
+  <script>
+    // Simulated data
+    const usageData = {
+      screenTime: 5.2,         // in hours
+      storageUsed: 64,         // in GB
+      battery: 78,             // in percentage
+      dataUsed: 3.5            // in GB
+    };
+
+    // Update UI
+    document.getElementById('screenTime').innerText = usageData.screenTime;
+    document.getElementById('screenBar').style.width = (usageData.screenTime / 10 * 100) + '%'; // Assuming 10h max
+
+    document.getElementById('storageUsed').innerText = usageData.storageUsed;
+    document.getElementById('storageBar').style.width = (usageData.storageUsed / 128 * 100) + '%'; // 128GB max
+
+    document.getElementById('battery').innerText = usageData.battery;
+    document.getElementById('batteryBar').style.width = usageData.battery + '%';
+
+    document.getElementById('dataUsed').innerText = usageData.dataUsed;
+    document.getElementById('dataBar').style.width = (usageData.dataUsed / 10 * 100) + '%'; // Assuming 10GB limit
+  </script>
+
+</body>
+</html>
