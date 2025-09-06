@@ -1,199 +1,84 @@
-<!doctype html>
+  <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Smartphone — Advantages & Disadvantages (DemoApp)</title>
-  <meta name="description" content="A small single-file demo app showing advantages and disadvantages of smartphones. Responsive and interactive." />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Smartphone Advantages and Disadvantages for Students (18-21)</title>
   <style>
-    :root{
-      --bg:#f6f8fb;
-      --card:#ffffff;
-      --muted:#667085;
-      --accent:#2563eb;
-      --good:#0ea5a4;
-      --bad:#ef4444;
-      --glass: rgba(255,255,255,0.6);
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f7f9;
+      margin: 0;
+      padding: 20px;
     }
-    *{box-sizing:border-box}
-    body{margin:0;background:linear-gradient(180deg,var(--bg),#eef2ff);color:#0f172a;min-height:100vh;display:flex;flex-direction:column}
-    header{padding:1.1rem 1.2rem;background:var(--card);display:flex;gap:1rem;align-items:center;box-shadow:0 6px 18px rgba(2,6,23,0.06);position:sticky;top:0;z-index:20}
-    .brand{display:flex;gap:.8rem;align-items:center}
-    .logo{width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#7c3aed);display:flex;align-items:center;justify-content:center;color:white;font-weight:700}
-    h1{font-size:1.05rem;margin:0}
-    header .controls{margin-left:auto;display:flex;gap:.5rem;align-items:center}
-    .btn{border:0;padding:.5rem .7rem;border-radius:8px;background:var(--glass);cursor:pointer}
-    .search{display:flex;gap:.5rem;align-items:center;padding:.4rem .6rem;border-radius:10px;background:#f1f5f9;border:1px solid #e6eef8}
-    .search input{border:0;background:transparent;outline:none;width:200px}
-    main{padding:1rem;max-width:1100px;margin:1rem auto;width:95%}
-    .intro{display:flex;flex-direction:column;gap:.5rem;margin-bottom:1rem}
-    .filters{display:flex;gap:.5rem;flex-wrap:wrap}
-    .chip{padding:.45rem .7rem;border-radius:999px;background:var(--card);border:1px solid #e6eef8;cursor:pointer}
-    .chip.active{box-shadow:0 6px 18px rgba(37,99,235,0.12);border-color:var(--accent)}
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;margin-top:1rem}
-    .card{background:var(--card);padding:1rem;border-radius:12px;box-shadow:0 8px 22px rgba(15,23,42,0.06);display:flex;flex-direction:column;gap:.6rem}
-    .card .title{display:flex;align-items:center;gap:.7rem;font-weight:600}
-    .badge{padding:.25rem .5rem;border-radius:8px;font-size:.8rem}
-    .badge.good{background:rgba(14,165,164,0.12);color:var(--good)}
-    .badge.bad{background:rgba(239,68,68,0.12);color:var(--bad)}
-    .desc{color:var(--muted);font-size:.95rem}
-    .actions{display:flex;gap:.5rem;margin-top:auto;align-items:center}
-    .toggle{display:flex;gap:.2rem;align-items:center}
-    footer{text-align:center;padding:1rem;color:var(--muted);font-size:.9rem}
-    @media (max-width:520px){.search input{width:120px}}
+
+    header {
+      background-color: #2c3e50;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      margin: 0;
+    }
+
+    section {
+      background-color: white;
+      padding: 20px;
+      margin-top: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      color: #2c3e50;
+    }
+
+    ul {
+      list-style-type: disc;
+      padding-left: 20px;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 0.9em;
+      color: #888;
+    }
   </style>
 </head>
 <body>
+
   <header>
-    <div class="brand">
-      <div class="logo">S</div>
-      <div>
-        <h1>Smartphone: Pros & Cons</h1>
-        <div style="font-size:.85rem;color:var(--muted)">Learn advantages and disadvantages quickly</div>
-      </div>
-    </div>
-    <div class="controls">
-      <div class="search" role="search">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden><path d="M21 21l-4.35-4.35" stroke="#475569" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path><circle cx="11" cy="11" r="6" stroke="#475569" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></circle></svg>
-        <input id="q" placeholder="Search features, e.g. learning" />
-      </div>
-      <button class="btn" id="toggleTheme" title="Toggle dark mode">🌙</button>
-      <button class="btn" id="printBtn" title="Print / Save as PDF">Print</button>
-    </div>
+    <h1>Smartphones: Pros and Cons for Students (Age 18-21)</h1>
   </header>
 
-  <main>
-    <section class="intro">
-      <p style="margin:0;color:var(--muted)">This small demo app shows common <strong>advantages</strong> and <strong>disadvantages</strong> of using smartphones. Use the search and filters to explore. The content is educational and concise.</p>
-      <div class="filters" role="toolbar" aria-label="Filters">
-        <button class="chip active" data-filter="all">All</button>
-        <button class="chip" data-filter="advantages">Advantages</button>
-        <button class="chip" data-filter="disadvantages">Disadvantages</button>
-        <button class="chip" data-filter="privacy">Privacy</button>
-        <button class="chip" data-filter="health">Health</button>
-        <button class="chip" data-filter="education">Education</button>
-      </div>
-    </section>
+  <section>
+    <h2>📱 Advantages</h2>
+    <ul>
+      <li>Easy access to online learning resources and study materials.</li>
+      <li>Helps in staying connected with classmates and teachers.</li>
+      <li>Useful apps for productivity, organization, and time management.</li>
+      <li>Quick access to research, news, and educational videos.</li>
+      <li>Can be used for remote learning and video conferencing.</li>
+    </ul>
+  </section>
 
-    <section class="grid" id="list">
-      <!-- Cards will be injected here by JS -->
-    </section>
+  <section>
+    <h2>⚠️ Disadvantages</h2>
+    <ul>
+      <li>Can cause distraction during study time due to social media and games.</li>
+      <li>Overuse may lead to reduced attention span and poor academic performance.</li>
+      <li>Health concerns like eye strain and poor posture.</li>
+      <li>Risk of addiction to entertainment or social apps.</li>
+      <li>Can affect sleep patterns if used excessively at night.</li>
+    </ul>
+  </section>
 
-    <template id="cardTpl">
-      <article class="card" tabindex="0">
-        <div class="title"><div class="emoji" aria-hidden></div><div class="heading"></div><div style="margin-left:auto" class="badge"></div></div>
-        <div class="desc"></div>
-        <div class="actions">
-          <div style="font-size:.9rem;color:var(--muted)" class="tagline"></div>
-          <div style="margin-left:auto;display:flex;gap:.4rem;align-items:center">
-            <button class="btn more">More</button>
-          </div>
-        </div>
-      </article>
-    </template>
+  <footer>
+    <p>&copy; 2025 Student Awareness Project</p>
+  </footer>
 
-  </main>
-
-  <footer>Made for learning • Tap "Print" to save as PDF • Ask me to customize it</footer>
-
-  <script>
-    const data = [
-      {id:1,type:'advantages',tags:['education'],title:'Access to information',emoji:'📚',short:'Instant access to web resources, e-books and videos.',desc:'Smartphones make it possible to look up information instantly, access online courses, tutorials and e-books — helping self-study and quick problem solving.'},
-      {id:2,type:'advantages',tags:['communication'],title:'Easy communication',emoji:'💬',short:'Calls, messaging, and video chats from anywhere.',desc:'Stay connected with family, friends and colleagues via calls, texts, email and video conferencing.'},
-      {id:3,type:'advantages',tags:['productivity'],title:'Productivity apps',emoji:'🗂️',short:'Calendars, notes, and task apps keep you organized.',desc:'A wide range of apps (calendars, notes, scanners, cloud storage) help manage tasks and share documents quickly.'},
-      {id:4,type:'advantages',tags:['health'],title:'Health & fitness tools',emoji:'🏃‍♀️',short:'Track steps, workouts and sleep patterns.',desc:'Many smartphones provide built-in sensors and apps to monitor fitness, set goals, and remind you to be active.'},
-      {id:5,type:'disadvantages',tags:['privacy'],title:'Privacy concerns',emoji:'🔒',short:'Data collection, tracking and targeted ads.',desc:'Apps and services often collect personal data; if mishandled this can cause privacy breaches or unwanted profiling.'},
-      {id:6,type:'disadvantages',tags:['health'],title:'Screen time & sleep impact',emoji:'🌙',short:'Excessive screen use can harm sleep and attention.',desc:'Long screen exposure, especially before bed, can lead to poor sleep quality, eye strain, and reduced attention span.'},
-      {id:7,type:'disadvantages',tags:['social'],title:'Social distraction',emoji:'📵',short:'Notifications and social media can reduce focus.',desc:'Frequent notifications and social feeds may interrupt work or study, reducing deep-focus time.'},
-      {id:8,type:'disadvantages',tags:['security'],title:'Security risks',emoji:'⚠️',short:'Malware, phishing and data theft possible.',desc:'Untrusted apps and links can install malware or steal credentials — keep software updated and install apps from official stores.'},
-      {id:9,type:'advantages',tags:['education'],title:'Assistive features',emoji:'🦻',short:'Accessibility tools for diverse needs.',desc:'Built-in accessibility (voice-over, magnification, captions) help people with disabilities to use devices effectively.'},
-      {id:10,type:'disadvantages',tags:['cost'],title:'Cost & e-waste',emoji:'💸',short:'High device and upgrade costs; environmental impact.',desc:'Frequent upgrades increase cost and contribute to electronic waste; recycle old devices responsibly.'}
-    ];
-
-    const listEl = document.getElementById('list');
-    const tpl = document.getElementById('cardTpl');
-
-    function render(items){
-      listEl.innerHTML = '';
-      items.forEach(it=>{
-        const node = tpl.content.cloneNode(true);
-        node.querySelector('.emoji').textContent = it.emoji;
-        node.querySelector('.heading').textContent = it.title;
-        const badge = node.querySelector('.badge');
-        badge.textContent = it.type === 'advantages' ? 'Advantage' : 'Disadvantage';
-        badge.classList.add(it.type === 'advantages' ? 'good' : 'bad');
-        node.querySelector('.desc').textContent = it.short;
-        node.querySelector('.tagline').textContent = it.tags.join(', ');
-        const article = node.querySelector('article');
-        article.dataset.type = it.type;
-        article.dataset.tags = it.tags.join(' ');
-        article.querySelector('.more').addEventListener('click', ()=>alert(it.title + '\n\n' + it.desc));
-        listEl.appendChild(node);
-      })
-    }
-
-    render(data);
-
-    // Filters
-    document.querySelectorAll('.chip').forEach(btn=>{
-      btn.addEventListener('click', ()=>{
-        document.querySelectorAll('.chip').forEach(c=>c.classList.remove('active'));
-        btn.classList.add('active');
-        const f = btn.dataset.filter;
-        applyFilter(f, document.getElementById('q').value.trim());
-      })
-    });
-
-    // Search
-    document.getElementById('q').addEventListener('input', e=>{
-      const q = e.target.value.trim();
-      const active = document.querySelector('.chip.active').dataset.filter;
-      applyFilter(active, q);
-    });
-
-    function applyFilter(filter, q){
-      const ql = q.toLowerCase();
-      const filtered = data.filter(i=>{
-        if(filter === 'all'){}
-        else if(filter === 'advantages' || filter === 'disadvantages'){ if(i.type !== filter) return false }
-        else { if(!i.tags.includes(filter)) return false }
-        if(!ql) return true;
-        return (i.title + ' ' + i.short + ' ' + i.desc + ' ' + i.tags.join(' ')).toLowerCase().includes(ql);
-      });
-      render(filtered);
-    }
-
-    // Print
-    document.getElementById('printBtn').addEventListener('click', ()=>window.print());
-
-    // Theme toggle (light/dark)
-    const themeBtn = document.getElementById('toggleTheme');
-    let dark = false;
-    themeBtn.addEventListener('click', ()=>{
-      dark = !dark;
-      if(dark){
-        document.documentElement.style.setProperty('--bg','#0b1020');
-        document.documentElement.style.setProperty('--card','#071124');
-        document.documentElement.style.setProperty('--muted','#94a3b8');
-        document.documentElement.style.setProperty('--accent','#60a5fa');
-        document.body.style.color='#e6eef8';
-        themeBtn.textContent='☀️';
-      } else {
-        document.documentElement.style.setProperty('--bg','#f6f8fb');
-        document.documentElement.style.setProperty('--card','#ffffff');
-        document.documentElement.style.setProperty('--muted','#667085');
-        document.documentElement.style.setProperty('--accent','#2563eb');
-        document.body.style.color='#0f172a';
-        themeBtn.textContent='🌙';
-      }
-    });
-
-    // Accessibility: focus first card when filtered
-    listEl.addEventListener('click', ()=>{
-      const first = listEl.querySelector('article');
-      if(first) first.focus();
-    })
-  </script>
 </body>
 </html>
